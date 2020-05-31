@@ -36,8 +36,8 @@ If you need to update `npm`, just run the following command.
 
 ### Setting up the service
 
-    $ git clone 
-    $ cd registration_service
+    $ git clone https://github.com/snehjogani/registration-service.git
+    $ cd registration-service
     $ npm install
 
 ### Running the service
