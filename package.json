@@ -2,9 +2,10 @@
   "name": "registration-service",
   "version": "1.0.0",
   "description": "Serverless Data Processing - Assignment 2",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
+    "start": "node .",
+    "dev": "nodemon --exec babel-node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,11 +15,23 @@
   "author": "Jogani Sneh",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "2.4.3",
+    "body-parser": "1.19.0",
+    "cookie-parser": "1.4.5",
     "cors": "2.8.5",
     "dotenv": "8.2.0",
     "express": "4.17.1",
+    "express-validation": "3.0.5",
+    "helmet": "^3.22.0",
+    "http-status": "1.4.2",
+    "lodash": "4.17.15",
+    "module-alias": "2.2.2",
     "mysql": "2.18.1",
-    "react-scripts": "^3.4.1"
+    "mysql2": "2.1.0",
+    "react-scripts": "3.4.1",
+    "sequelize": "5.21.11",
+    "sequelize-cli": "5.5.1",
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.8.6",
