@@ -28,4 +28,5 @@ con.connect(function (err) {
   });
 });
 
+
 export default con;

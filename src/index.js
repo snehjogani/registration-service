@@ -21,15 +21,21 @@ app.post("/register", (req, res) => {
 		console.log("Register Request received");
 		con.connect(err => {
 			con.query(
-				`INSERT INTO assignment2.users (name, email, password, topic)
-                    VALUES ('${name}', '${email}', '${password}', '${topic}')`,
-				(err, result, fields) => {
+				`INSERT INTO assignment2.users (name, email, password, topic) VALUES ('${name}', '${email}', '${password}', '${topic}')`,
+				(err, result) => {
 					if (err) res.send(err);
-					if (result) res.send(result);
+					if (result) {
+						con.query(`SELECT id, name, email, topic FROM assignment2.users WHERE id=${result.insertId}`,
+							(err, result) => {
+								if (err) res.send(err)
+								if (result) res.send(result[0])
+							})
+					};
 				}
 			);
 		});
 	} else {
-		console.log("Missing a parameter");
+		// res.status(422)
+		res.sendStatus(422);
 	}
 });
