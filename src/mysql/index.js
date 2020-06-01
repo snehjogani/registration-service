@@ -1,7 +1,7 @@
 import "dotenv/config";
 import mysql from "mysql";
 
-import { DB_CREATIION } from "./querries";
+import { DB_CREATION, TABLE_CREATION } from "./querries";
 
 const CONNECTION_CONFIG = {
   host: process.env.MYSQL_ENDPOINT,
@@ -11,18 +11,21 @@ const CONNECTION_CONFIG = {
 
 const con = mysql.createConnection(CONNECTION_CONFIG);
 
-const callback = (error, result, fields) => {
-  // console.log(result);
-};
-
-con.connect(function(err) {
+con.connect(function (err) {
   if (err) throw err;
   console.log("Database Connected!");
-  con.query("CREATE DATABASE IF NOT EXISTS ccgroup7;");
-  con.query("USE ccgroup7;");
-  // mysql table cration script
-  con.query(DB_CREATIION, callback);
-  //   con.end();
+
+  // schema generation query
+  con.query(DB_CREATION, (err, res) => {
+    if (res) console.log('Schema created successfully!')
+    if (err) console.error(err)
+  });
+
+  // user table creation script
+  con.query(TABLE_CREATION, (err, res) => {
+    if (res) console.log('Table created successfully!')
+    if (err) console.error(err)
+  });
 });
 
 export default con;
