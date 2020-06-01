@@ -76,11 +76,10 @@ async function register(req, res, next) {
     // COMMIT
     await transaction.commit();
 
-    let resp = {
+    return res.json({
       data: userInstance,
       status: 200
-    }
-    return res.json(resp);
+    });
   } catch (exec) {
     if (transaction) {
       await transaction.rollback()
