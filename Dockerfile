@@ -1,10 +1,10 @@
 FROM node:8
 
 WORKDIR /app/
-COPY ./registration-service/package*.json /app/
+COPY ./package*.json /app/
 RUN npm install
 
-COPY ./registration-service/ /app/
+COPY ./ /app/
 
 ENV PORT=3000
 ENV DB_HOST=34.86.218.160
