@@ -1,6 +1,16 @@
 ## Registration Service
     CSCI5410 Serverless Data Processing Assignment 2
 
+#### URL
+
+Google Cloud Run `https://registration-service-cplbokiulq-de.a.run.app`
+
+#### APIs
+
+`POST` `/api/users/register` To allow users to register
+
+`GET` `/status-check` Check the status of the service
+
 #### Developement Requirements
 
 For development, you will only need Node.js and a node global package, Npm, installed in your environement.
